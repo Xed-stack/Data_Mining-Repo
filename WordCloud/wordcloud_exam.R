@@ -19,7 +19,7 @@ feedback_clean <- tm_map(feedback_clean, removeNumbers)
 # Remove punctuation
 feedback_clean <- tm_map(feedback_clean, removePunctuation)
 
-# Remove English stopwords
+# Remove English stopwords 
 feedback_clean <- tm_map(feedback_clean, removeWords, stopwords("english"))
 
 # Strip whitespace
@@ -62,19 +62,19 @@ cat("Saved wordcloud_exam.png\n")
 
 
 #Part 4
-rare_words <- subset(df, freq == 1)
+least5 <- head(df[order(df$freq), ], 5)
 
 png("wordcloud_rare.png", width = 800, height = 600)
 
 wordcloud(
-  words =rare_words$word,
-  freq = rare_words$freq,
+  words =least5$word,
+  freq = least5$freq,
   min.freq = 1,
-  max.words = nrow(rare_words),
+  max.words = 5,
   random.order = FALSE,
   rot.per = 0.35,
   scale = c(4, 0.5),
-  colors = brewer.pal(30,"Dark2")
+  colors = brewer.pal(8,"Dark2")
 )
 dev.off()
 cat("Saved wordcloud_rare.png\n")
