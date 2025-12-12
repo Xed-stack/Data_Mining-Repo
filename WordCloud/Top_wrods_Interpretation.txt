@@ -1,0 +1,16 @@
+INTERPRETATION:
+The most frequent words reflect the common themes present in the feedback. Words associated with service experience such as 'servic', 'staff', and 'wait' appear often, indicating that customers frequently comment about operational efficiency and personnel performance. Terms with negative connotations appear as well, showing that customers highlight both strengths and issues.Overall, the high-frequency words reveal customer priorities and recurring concerns.
+
+[1] "Top 10 Most Frequent Words:"
+> print(head(df, 10))
+          	 word	 freq
+offic     	offic   	11
+servic  	 servic   	10
+process 	process   	 9
+form      	 form    	7
+need      	 need    	7
+time      	 time    	7
+wait       	wait    	7
+inform  	 inform    	6
+one       	  one   	 6
+staff    	 staff   	 6
