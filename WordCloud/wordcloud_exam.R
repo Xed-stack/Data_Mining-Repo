@@ -3,7 +3,6 @@ library(SnowballC)
 library(wordcloud)
 library(RColorBrewer)
 
-#Part 2 
 
 feedback <- readLines("feedback.txt", encoding = "UTF-8", warn = FALSE)
 feedback <- paste(feedback, collapse=" ")
@@ -29,6 +28,8 @@ feedback_clean <- tm_map(feedback_clean, stripWhitespace)
 # Stem the words
 feedback_clean <- tm_map(feedback_clean, stemDocument)
 
+
+#Part 2
 #create TDM
 tdm <- TermDocumentMatrix(feedback_clean)
 m <- as.matrix(tdm)
@@ -36,9 +37,11 @@ m <- as.matrix(tdm)
 word_freqs <- sort(rowSums(m), decreasing = TRUE)
 df <- data.frame(word = names(word_freqs), freq = word_freqs)
 
+
 #Display top 10 words
 print("Top 10 Most Frequent Words:")
 print(head(df, 10))
+
 
 
 #Part 3
@@ -51,9 +54,8 @@ wordcloud(
   max.words = 1000,
   random.order = FALSE,
   rot.per = 0.4,
-  scale = c(3, 0.5),
-  use.r.layout=TRUE,
-  colors = brewer.pal(8,"Spectral")
+  scale = c(4, 0.5),
+  colors = brewer.pal(30,"Dark2")
 )
 dev.off()
 cat("Saved wordcloud_exam.png\n")
@@ -72,7 +74,7 @@ wordcloud(
   random.order = FALSE,
   rot.per = 0.35,
   scale = c(4, 0.5),
-  colors = brewer.pal(8,"Spectral")
+  colors = brewer.pal(30,"Dark2")
 )
 dev.off()
 cat("Saved wordcloud_rare.png\n")
